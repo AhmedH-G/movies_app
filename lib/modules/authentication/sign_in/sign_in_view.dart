@@ -57,8 +57,10 @@ class _SignInViewState extends State<SignInView> {
             CustomElevatedButton(
               bottonText: "Login",
               onPressed: () {
-                // Navigator.pushNamed(context, PageRouteName.pickAvatar);
-              },
+    Navigator.pushNamed(
+    context,
+    PageRouteName.updateScreen,
+    );              },
             ),
             SizedBox(height: 24),
             RichText(

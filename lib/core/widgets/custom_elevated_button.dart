@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-
 import '../theme/color_pallete.dart';
 
 class CustomElevatedButton extends StatelessWidget {
@@ -9,6 +7,8 @@ class CustomElevatedButton extends StatelessWidget {
   final Color? backgroundColor;
   final Color? bordarColor;
   final Widget? customChild;
+  final Color? textColor;
+
   const CustomElevatedButton({
     super.key,
     this.onPressed,
@@ -16,6 +16,7 @@ class CustomElevatedButton extends StatelessWidget {
     this.backgroundColor,
     this.bordarColor,
     this.customChild,
+    this.textColor,
   });
 
   @override
@@ -26,19 +27,20 @@ class CustomElevatedButton extends StatelessWidget {
         elevation: 0,
         backgroundColor: backgroundColor ?? ColorPallete.primaryColor,
         padding: EdgeInsets.symmetric(vertical: 16),
+        alignment: Alignment.center,
         shape: RoundedRectangleBorder(
           side: BorderSide(color: bordarColor ?? ColorPallete.primaryColor),
           borderRadius: BorderRadiusGeometry.circular(16),
         ),
       ),
-      child:
-          customChild ??
+      child: customChild ??
           Text(
             bottonText ?? "",
+            textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.black,
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
+              color: textColor ?? Colors.black,
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
             ),
           ),
     );

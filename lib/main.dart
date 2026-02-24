@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: ThemeManager.getLightTheme(),
       darkTheme: ThemeManager.getDarkTheme(),
-      initialRoute: PageRouteName.singIn,
+     // initialRoute: PageRouteName.updateScreen,
       onGenerateRoute: AppRouters.onGenerateRoute,
       debugShowCheckedModeBanner: false,
     );

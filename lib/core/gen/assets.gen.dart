@@ -32,9 +32,13 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/user.png
   AssetGenImage get user => const AssetGenImage('assets/icons/user.png');
+  /// File path: assets/icons/Group 5.png
+  AssetGenImage get Group5 => const AssetGenImage('assets/icons/Group 5');
+  /// File path: assets/icons/User-4.png
+  AssetGenImage get User4 => const AssetGenImage('assets/icons/User-4.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [eyeSlash, google, lock, phone, sms, user];
+  List<AssetGenImage> get values => [eyeSlash, google, lock, phone, sms, user, Group5,  User4];
 }
 
 class $AssetsImagesGen {
@@ -75,6 +79,26 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/avatar9.png
   AssetGenImage get avatar9 => const AssetGenImage('assets/images/avatar9.png');
+  /// File path: assets/images/gamer (1).png
+  AssetGenImage get gamer1 => const AssetGenImage('assets/images/gamer (1).png');
+  /// File path: assets/images/ Component1.png
+  AssetGenImage get Component1 => const AssetGenImage('assets/images/Component 11 – 1.png');
+  /// File path: assets/images/ Component2.png
+  AssetGenImage get Component2 => const AssetGenImage('assets/images/Component 11 – 2.png');
+  /// File path: assets/images/ Component4.png
+  AssetGenImage get Component4 => const AssetGenImage('assets/images/Component 11 – 4.png');
+  /// File path: assets/images/ Component5.png
+  AssetGenImage get Component5 => const AssetGenImage('assets/images/Component 11 – 5.png');
+  /// File path: assets/images/ Component6.png
+  AssetGenImage get Component6 => const AssetGenImage('assets/images/Component 11 – 6.png');
+  /// File path: assets/images/ Component7.png
+  AssetGenImage get Component7 => const AssetGenImage('assets/images/Component 11 – 7.png');
+  /// File path: assets/images/ Component8.png
+  AssetGenImage get Component8 => const AssetGenImage('assets/images/Component 11 – 8.png');
+  /// File path: assets/images/ Component9.png
+  AssetGenImage get Component9 => const AssetGenImage('assets/images/Component 11 – 9.png');
+  /// File path: assets/images/ Component10.png
+  AssetGenImage get Component10 => const AssetGenImage('assets/images/Component 11 – 10.png');
 
   /// File path: assets/images/forget_password.png
   AssetGenImage get forgetPassword =>
@@ -94,6 +118,20 @@ class $AssetsImagesGen {
     avatar7,
     avatar8,
     avatar9,
+    gamer1,
+    Component1,
+    Component2,
+    Component4,
+    Component5,
+    Component6,
+    Component7,
+    Component8,
+    Component9,
+    Component10,
+
+
+
+
     forgetPassword,
   ];
 }
