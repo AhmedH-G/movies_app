@@ -8,5 +8,5 @@ abstract class ColorPallete {
   static const Color bacgroundTextfelid = Color(0xFF282A28);
   static const Color errorBordarColor = Color(0xFFC60C0C);
   static const Color generalTextColor = Color(0xFFFFFFFF);
-
+  static const Color blue = Color(0xFF1E2987);
 }
