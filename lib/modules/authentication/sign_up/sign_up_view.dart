@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
-
 import '../../../core/gen/assets.gen.dart';
 import '../../../core/routes/page_route_name.dart';
 import '../../../core/theme/color_pallete.dart';
@@ -16,7 +15,7 @@ class SignUpView extends StatefulWidget {
 }
 
 class _SignUpViewState extends State<SignUpView> {
-  PageController _controller = PageController(
+  final PageController _controller = PageController(
     viewportFraction: 0.4,
   );
   int selectedIndex = 0;
@@ -40,7 +39,7 @@ class _SignUpViewState extends State<SignUpView> {
         centerTitle: true,
         title: Text("Register")
       ),
-        body: Padding(
+        body: SingleChildScrollView(child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -157,7 +156,7 @@ class _SignUpViewState extends State<SignUpView> {
               CustomSwapFlag(),
             ],
           ),
-        ),
+        ),)
     );
   }
 }

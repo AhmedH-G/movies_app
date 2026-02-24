@@ -104,6 +104,30 @@ class $AssetsImagesGen {
   AssetGenImage get forgetPassword =>
       const AssetGenImage('assets/images/forget_password.png');
 
+  /// File path: assets/images/onBoarding1.png
+  AssetGenImage get onBoarding1 =>
+      const AssetGenImage('assets/images/onBoarding1.png');
+
+  /// File path: assets/images/onBoarding2.jpg
+  AssetGenImage get onBoarding2 =>
+      const AssetGenImage('assets/images/onBoarding2.jpg');
+
+  /// File path: assets/images/onBoarding3.jpg
+  AssetGenImage get onBoarding3 =>
+      const AssetGenImage('assets/images/onBoarding3.jpg');
+
+  /// File path: assets/images/onBoarding4.jpg
+  AssetGenImage get onBoarding4 =>
+      const AssetGenImage('assets/images/onBoarding4.jpg');
+
+  /// File path: assets/images/onBoarding5.jpg
+  AssetGenImage get onBoarding5 =>
+      const AssetGenImage('assets/images/onBoarding5.jpg');
+
+  /// File path: assets/images/onBoarding6.jpg
+  AssetGenImage get onBoarding6 =>
+      const AssetGenImage('assets/images/onBoarding6.jpg');
+
   /// List of all assets
   List<AssetGenImage> get values => [
     eg,
@@ -133,6 +157,12 @@ class $AssetsImagesGen {
 
 
     forgetPassword,
+    onBoarding1,
+    onBoarding2,
+    onBoarding3,
+    onBoarding4,
+    onBoarding5,
+    onBoarding6,
   ];
 }
 

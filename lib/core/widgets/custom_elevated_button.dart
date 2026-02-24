@@ -21,6 +21,7 @@ class CustomElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     return ElevatedButton(
       onPressed: onPressed ?? () {},
       style: ElevatedButton.styleFrom(
@@ -37,9 +38,8 @@ class CustomElevatedButton extends StatelessWidget {
           Text(
             bottonText ?? "",
             textAlign: TextAlign.center,
-            style: TextStyle(
-              color: textColor ?? Colors.black,
-              fontSize: 14,
+            style: theme.textTheme.titleLarge?.copyWith(
+              color: ColorPallete.colorBlack,
               fontWeight: FontWeight.w600,
             ),
           ),

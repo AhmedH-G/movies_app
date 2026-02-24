@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movies/core/widgets/custom_elevated_button.dart';
 
 import '../../../core/gen/assets.gen.dart';
-import '../../../core/widgets/custom_elevated_button.dart';
 import '../../../core/widgets/custom_text_from_field.dart';
 
 class ForgetPasswordView extends StatelessWidget {
@@ -26,7 +26,7 @@ class ForgetPasswordView extends StatelessWidget {
               prefixIcon: Assets.icons.sms.image(),
             ),
             SizedBox(height: 16),
-            CustomElevatedButton(bottonText: "Vrify Email", onPressed: () {}),
+            CustomElevatedButton(bottonText: "Vrify Email", onPressed: () {},),
           ],
         ),
       ),
