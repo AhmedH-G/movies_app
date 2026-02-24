@@ -12,10 +12,12 @@ class _PickAvatarScreenState extends State<PickAvatarScreen> {
   int selectedIndex = 1;
   bool showAvatars = false;
 
-  final TextEditingController nameController =
-  TextEditingController(text: "John Safwat");
-  final TextEditingController phoneController =
-  TextEditingController(text: "01200000000");
+  final TextEditingController nameController = TextEditingController(
+    text: "John Safwat",
+  );
+  final TextEditingController phoneController = TextEditingController(
+    text: "01200000000",
+  );
 
   final List<String> avatars = [
     Assets.images.Component1.path,
@@ -33,22 +35,22 @@ class _PickAvatarScreenState extends State<PickAvatarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
+      appBar: AppBar(title: Text("Pick Avatar")),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildAppBar(context),
-              const SizedBox(height: 25),
+              SizedBox(height: 25),
               _buildAvatarPicker(),
-              const SizedBox(height: 30),
+              SizedBox(height: 30),
               _buildNameField(),
-              const SizedBox(height: 15),
+              SizedBox(height: 15),
               _buildPhoneField(),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               _buildResetPassword(),
-              const SizedBox(height: 25),
+              SizedBox(height: 25),
               if (showAvatars) _buildAvatarsGrid(),
             ],
           ),
@@ -57,29 +59,29 @@ class _PickAvatarScreenState extends State<PickAvatarScreen> {
     );
   }
 
-  Widget _buildAppBar(BuildContext context) {
-    return Row(
-      children: [
-        IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.yellow.withOpacity(0.4),
-          ),
-        ),
-        const Spacer(),
-        Text(
-          "Pick Avatar",
-          style: TextStyle(
-            color: Colors.yellow.withOpacity(0.4),
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        const SizedBox(width: 125),
-      ],
-    );
-  }
+  // Widget _buildAppBar(BuildContext context) {
+  //   return Row(
+  //     children: [
+  //       IconButton(
+  //         onPressed: () => Navigator.pop(context),
+  //         icon: Icon(
+  //           Icons.arrow_back,
+  //           color: Colors.yellow.withOpacity(0.4),
+  //         ),
+  //       ),
+  //       const Spacer(),
+  //       Text(
+  //         "Pick Avatar",
+  //         style: TextStyle(
+  //           color: Colors.yellow.withOpacity(0.4),
+  //           fontSize: 16,
+  //           fontWeight: FontWeight.w500,
+  //         ),
+  //       ),
+  //       const SizedBox(width: 125),
+  //     ],
+  //   );
+  // }
 
   Widget _buildAvatarPicker() {
     return Center(
@@ -120,10 +122,7 @@ class _PickAvatarScreenState extends State<PickAvatarScreen> {
   Widget _buildResetPassword() {
     return const Text(
       "Reset Password",
-      style: TextStyle(
-        color: Colors.white60,
-        fontSize: 14,
-      ),
+      style: TextStyle(color: Colors.white60, fontSize: 14),
     );
   }
 
@@ -133,35 +132,26 @@ class _PickAvatarScreenState extends State<PickAvatarScreen> {
     required TextInputType keyboardType,
   }) {
     return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-    height: 55,
-    decoration: BoxDecoration(
-    color: Colors.grey.shade900,
-    borderRadius: BorderRadius.circular(12),
-    ),
-    child: Row(
-    children: [
-    Image.asset(
-    image,width: 20,
-      height: 20,
-      color: Colors.white54,
-    ),
-      const SizedBox(width: 10),
-      Expanded(
-        child: TextField(
-          controller: controller,
-          keyboardType: keyboardType,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 15,
-          ),
-          decoration: const InputDecoration(
-            border: InputBorder.none,
-          ),
-        ),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      height: 55,
+      decoration: BoxDecoration(
+        color: Colors.grey.shade900,
+        borderRadius: BorderRadius.circular(12),
       ),
-    ],
-    ),
+      child: Row(
+        children: [
+          Image.asset(image, width: 20, height: 20, color: Colors.white54),
+          const SizedBox(width: 10),
+          Expanded(
+            child: TextField(
+              controller: controller,
+              keyboardType: keyboardType,
+              style: const TextStyle(color: Colors.white, fontSize: 15),
+              decoration: const InputDecoration(border: InputBorder.none),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -191,10 +181,7 @@ class _PickAvatarScreenState extends State<PickAvatarScreen> {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  avatars[index],
-                  fit: BoxFit.cover,
-                ),
+                child: Image.asset(avatars[index], fit: BoxFit.cover),
               ),
             ),
           );

@@ -10,7 +10,9 @@ class UpdateScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: _buildAppBar(context),
+      appBar: AppBar(
+        title: Text("Pick Avatar"),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -34,27 +36,27 @@ class UpdateScreen extends StatelessWidget {
     );
   }
 
-  PreferredSizeWidget _buildAppBar(BuildContext context) {
-    return AppBar(
-      backgroundColor: Colors.black,
-      elevation: 0,
-      leading: IconButton(
-        icon: const Icon(Icons.arrow_back, color: Colors.amber),
-        onPressed: () {
-          Navigator.pop(context);
-        },
-      ),
-      centerTitle: true,
-      title: const Text(
-        "Pick Avatar",
-        style: TextStyle(
-          color: Colors.amber,
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-    );
-  }
+  // PreferredSizeWidget _buildAppBar(BuildContext context) {
+  //   return AppBar(
+  //     backgroundColor: Colors.black,
+  //     elevation: 0,
+  //     leading: IconButton(
+  //       icon: const Icon(Icons.arrow_back, color: Colors.amber),
+  //       onPressed: () {
+  //         Navigator.pop(context);
+  //       },
+  //     ),
+  //     centerTitle: true,
+  //     title: const Text(
+  //       "Pick Avatar",
+  //       style: TextStyle(
+  //         color: Colors.amber,
+  //         fontSize: 18,
+  //         fontWeight: FontWeight.w600,
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Widget _buildAvatar() {
     return CircleAvatar(
