@@ -39,49 +39,27 @@ class _PickAvatarScreenState extends State<PickAvatarScreen> {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 25),
-              _buildAvatarPicker(),
-              SizedBox(height: 30),
-              _buildNameField(),
-              SizedBox(height: 15),
-              _buildPhoneField(),
-              SizedBox(height: 20),
-              _buildResetPassword(),
-              SizedBox(height: 25),
-              if (showAvatars) _buildAvatarsGrid(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 25),
+                _buildAvatarPicker(),
+                SizedBox(height: 30),
+                _buildNameField(),
+                SizedBox(height: 15),
+                _buildPhoneField(),
+                SizedBox(height: 20),
+                _buildResetPassword(),
+                SizedBox(height: 25),
+                if (showAvatars) _buildAvatarsGrid(),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
-
-  // Widget _buildAppBar(BuildContext context) {
-  //   return Row(
-  //     children: [
-  //       IconButton(
-  //         onPressed: () => Navigator.pop(context),
-  //         icon: Icon(
-  //           Icons.arrow_back,
-  //           color: Colors.yellow.withOpacity(0.4),
-  //         ),
-  //       ),
-  //       const Spacer(),
-  //       Text(
-  //         "Pick Avatar",
-  //         style: TextStyle(
-  //           color: Colors.yellow.withOpacity(0.4),
-  //           fontSize: 16,
-  //           fontWeight: FontWeight.w500,
-  //         ),
-  //       ),
-  //       const SizedBox(width: 125),
-  //     ],
-  //   );
-  // }
 
   Widget _buildAvatarPicker() {
     return Center(
@@ -156,37 +134,37 @@ class _PickAvatarScreenState extends State<PickAvatarScreen> {
   }
 
   Widget _buildAvatarsGrid() {
-    return Expanded(
-      child: GridView.builder(
-        itemCount: avatars.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+    return SizedBox(
+        height: 300,
+        child: GridView.builder(
+        itemCount: avatars.length,gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
           crossAxisSpacing: 15,
           mainAxisSpacing: 15,
         ),
-        itemBuilder: (context, index) {
-          final isSelected = selectedIndex == index;
-          return GestureDetector(
-            onTap: () {
-              setState(() {
-                selectedIndex = index;
-              });
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                border: isSelected
-                    ? Border.all(color: Colors.yellow, width: 3)
-                    : null,
+          itemBuilder: (context, index) {
+            final isSelected = selectedIndex == index;
+            return GestureDetector(
+              onTap: () {
+                setState(() {
+                  selectedIndex = index;
+                });
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: isSelected
+                      ? Border.all(color: Colors.yellow, width: 3)
+                      : null,
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.asset(avatars[index], fit: BoxFit.cover),
+                ),
               ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset(avatars[index], fit: BoxFit.cover),
-              ),
-            ),
-          );
-        },
-      ),
+            );
+          },
+        ),
     );
   }
 }

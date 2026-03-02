@@ -4,6 +4,7 @@ import 'package:movies/modules/onboarding/onboarding_screen.dart';
 import '../../modules/authentication/forget_password/forget_password_view.dart';
 import '../../modules/authentication/sign_in/sign_in_view.dart';
 import '../../modules/authentication/sign_up/sign_up_view.dart';
+import '../../modules/home/screens/home_screen.dart';
 import '../../modules/profile/pick_avatar_screen.dart';
 import '../../modules/profile/update_screen.dart';
 
@@ -35,15 +36,21 @@ abstract class AppRouters {
           settings: settings,
         );
 
-     case PageRouteName.pickAvatar:
-       return MaterialPageRoute(
-      builder: (context) => const PickAvatarScreen(),
+      case PageRouteName.pickAvatar:
+        return MaterialPageRoute(
+          builder: (context) => const PickAvatarScreen(),
           settings: settings,
-    );
+        );
 
-       case PageRouteName.updateScreen:
-         return MaterialPageRoute(
+      case PageRouteName.updateScreen:
+        return MaterialPageRoute(
           builder: (context) => const UpdateScreen(),
+          settings: settings,
+        );
+
+      case PageRouteName.HomeScreen:
+        return MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
           settings: settings,
         );
 
@@ -52,7 +59,6 @@ abstract class AppRouters {
           builder: (context) => const OnBoardingScreen(),
           settings: settings,
         );
-
     }
   }
 }

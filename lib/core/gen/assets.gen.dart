@@ -100,6 +100,7 @@ class $AssetsImagesGen {
   /// File path: assets/images/ Component10.png
   AssetGenImage get Component10 => const AssetGenImage('assets/images/Component 11 – 10.png');
 
+
   /// File path: assets/images/forget_password.png
   AssetGenImage get forgetPassword =>
       const AssetGenImage('assets/images/forget_password.png');
