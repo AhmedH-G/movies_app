@@ -8,6 +8,7 @@ class CustomElevatedButton extends StatelessWidget {
   final Color? bordarColor;
   final Widget? customChild;
   final Color? textColor;
+  final VoidCallback? onNavigation;
 
   const CustomElevatedButton({
     super.key,
@@ -17,13 +18,20 @@ class CustomElevatedButton extends StatelessWidget {
     this.bordarColor,
     this.customChild,
     this.textColor,
+    this.onNavigation,
   });
 
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return ElevatedButton(
-      onPressed: onPressed ?? () {},
+      onPressed: onPressed ?? () { if (onPressed != null) {
+        onPressed!();
+      }
+
+      if (onNavigation != null) {
+        onNavigation!();
+      }},
       style: ElevatedButton.styleFrom(
         elevation: 0,
         backgroundColor: backgroundColor ?? ColorPallete.primaryColor,

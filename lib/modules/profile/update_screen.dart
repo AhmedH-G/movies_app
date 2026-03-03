@@ -36,27 +36,6 @@ class UpdateScreen extends StatelessWidget {
     );
   }
 
-  // PreferredSizeWidget _buildAppBar(BuildContext context) {
-  //   return AppBar(
-  //     backgroundColor: Colors.black,
-  //     elevation: 0,
-  //     leading: IconButton(
-  //       icon: const Icon(Icons.arrow_back, color: Colors.amber),
-  //       onPressed: () {
-  //         Navigator.pop(context);
-  //       },
-  //     ),
-  //     centerTitle: true,
-  //     title: const Text(
-  //       "Pick Avatar",
-  //       style: TextStyle(
-  //         color: Colors.amber,
-  //         fontSize: 18,
-  //         fontWeight: FontWeight.w600,
-  //       ),
-  //     ),
-  //   );
-  // }
 
   Widget _buildAvatar() {
     return CircleAvatar(
@@ -163,3 +142,23 @@ class UpdateScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
