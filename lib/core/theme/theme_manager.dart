@@ -40,6 +40,18 @@ abstract class ThemeManager {
           fontFamily: "Inter",
           color: ColorPallete.generalTextColor,
         ),
+        titleMedium: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.w400,
+          fontFamily: "Inter",
+          color: Colors.white,
+        ),
+        titleSmall: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+          fontFamily: "Inter",
+          color: Colors.white,
+        ),
       )
     );
   }

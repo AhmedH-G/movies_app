@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:toastification/toastification.dart';
-
 import '../../../core/gen/assets.gen.dart';
 import '../../../core/routes/page_route_name.dart';
 import '../../../core/services/loading_service.dart';
 import '../../../core/theme/color_pallete.dart';
 import '../../../core/utils/firebase_auth_utils.dart';
+import '../../../core/utils/google_auth.dart';
 import '../../../core/widgets/custom_elevated_button.dart';
 import '../../../core/widgets/custom_swap_flag.dart';
 import '../../../core/widgets/custom_text_from_field.dart';
@@ -29,6 +29,7 @@ class _SignInViewState extends State<SignInView> {
 
     if (email.isEmpty || !RegExp(r'\S+@\S+\.\S+').hasMatch(email)) {
       toastification.show(
+        context: context,
         title: Text('Enter valid email'),
         type: ToastificationType.error,
         autoCloseDuration: Duration(seconds: 5),
@@ -38,6 +39,7 @@ class _SignInViewState extends State<SignInView> {
 
     if (password.isEmpty) {
       toastification.show(
+        context: context,
         title: Text('Password cannot be empty'),
         type: ToastificationType.error,
         autoCloseDuration: Duration(seconds: 5),
@@ -45,7 +47,6 @@ class _SignInViewState extends State<SignInView> {
       return;
     }
 
-    // تشغيل اللودنج
     configloading();
     EasyLoading.show(status: "Logging in...");
 
@@ -55,18 +56,49 @@ class _SignInViewState extends State<SignInView> {
     );
 
     EasyLoading.dismiss();
-
+    if (!mounted) return;
     if (result) {
       Navigator.pushReplacementNamed(
         context,
-        PageRouteName.HomeScreen,
+          PageRouteName.layoutView,
       );
     }
   }
+  //------------Sign in with google----------
+  void _handleGoogleSignIn() async {
+    try {
+      EasyLoading.show(status: "Connecting to Google...");
+
+      final userCredential = await GoogleSignInService.signInWithGoogle();
+
+      EasyLoading.dismiss();
+
+      if (userCredential != null && mounted) {
+        Navigator.pushReplacementNamed(context, PageRouteName.layoutView);
+
+        toastification.show(
+          context: context,
+          title: const Text('Logged in with Google successfully!'),
+          type: ToastificationType.success,
+          autoCloseDuration: const Duration(seconds: 3),
+        );
+      }
+    } catch (e) {
+      EasyLoading.dismiss();
+      toastification.show(
+        context: context,
+        title: Text('Google Sign-In failed: $e'),
+        type: ToastificationType.error,
+        autoCloseDuration: const Duration(seconds: 5),
+      );
+    }
+  }
+  //--------------------------------------------------
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
@@ -169,6 +201,9 @@ class _SignInViewState extends State<SignInView> {
             SizedBox(height: 24),
             CustomElevatedButton(
               backgroundColor: ColorPallete.primaryColor,
+              onPressed: ()  {
+                 _handleGoogleSignIn();
+              },
               customChild: Row(
                 spacing: 8,
                 mainAxisAlignment: MainAxisAlignment.center,

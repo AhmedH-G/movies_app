@@ -1,17 +1,20 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:movies/models/user_data_model.dart';
 import 'package:toastification/toastification.dart';
 
 abstract class FirebaseAuthUtils {
-
-  static Future<bool> singIn({required String emailAddress, required String password}) async {
-
+  static Future<bool> singIn({
+    required String emailAddress,
+    required String password,
+  }) async {
     try {
       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailAddress,
-          password: password
+        email: emailAddress,
+        password: password,
       );
-          return Future.value(true);
+      return Future.value(true);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-credential') {
         toastification.show(
@@ -70,31 +73,27 @@ abstract class FirebaseAuthUtils {
   static Future<bool> signUp({
     required String emailAddress,
     required String password,
-    String? displayName,       // الاسم
+    String? displayName, // الاسم
     String? phoneNumber,
     String? avatarUrl,
   }) async {
     try {
-
-      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailAddress,
-        password: password,
-      );
-
+      final credential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+            email: emailAddress,
+            password: password,
+          );
 
       if (displayName != null && displayName.isNotEmpty) {
         await credential.user!.updateDisplayName(displayName);
         await credential.user!.reload();
       }
 
-
-      if (phoneNumber != null && phoneNumber.isNotEmpty) {
-      }
+      if (phoneNumber != null && phoneNumber.isNotEmpty) {}
 
       if (avatarUrl != null && avatarUrl.isNotEmpty) {
         await credential.user!.updatePhotoURL(avatarUrl);
       }
-
 
       return Future.value(true);
     } on FirebaseAuthException catch (e) {
@@ -130,14 +129,9 @@ abstract class FirebaseAuthUtils {
     }
   }
 
-
-
-
   static Future<bool> resetPassword(String email) async {
     try {
-      await FirebaseAuth.instance.sendPasswordResetEmail(
-        email: email,
-      );
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
       return true;
     } on FirebaseAuthException catch (e) {
       print(e.code);
@@ -153,11 +147,9 @@ abstract class FirebaseAuthUtils {
 
       await user.delete();
       return true;
-
     } on FirebaseAuthException catch (e) {
       print(e.code);
 
-      // لو محتاج إعادة تسجيل دخول
       if (e.code == 'requires-recent-login') {
         return false;
       }
@@ -166,6 +158,32 @@ abstract class FirebaseAuthUtils {
     }
   }
 
+  static CollectionReference<UserDataModel> _getCollectionRef() {
+    return FirebaseFirestore.instance
+        .collection("UserCollection")
+        .withConverter<UserDataModel>(
+          fromFirestore: (snapshot, _) =>
+              UserDataModel.fromFireStore(snapshot.data()!),
+          toFirestore: (value, _) => value.toFireStore(),
+        );
+  }
 
+  static Future<void> createUser(UserDataModel user) async {
+    var collectionRef = _getCollectionRef();
+    var docRef = collectionRef.doc(user.uId);
 
+    return docRef.set(user);
+  }
+
+  static Future<UserDataModel?> getUserFromFireStore(String id) async {
+    var collectionRef = _getCollectionRef();
+    var docSnapshot = await collectionRef.doc(id).get();
+    return docSnapshot.data();
+  }
+
+  static Future<void> updateUserData(UserDataModel user) async {
+    var collectionRef = _getCollectionRef();
+    var docRef = collectionRef.doc(user.uId);
+    return docRef.update(user.toFireStore());
+  }
 }

@@ -40,7 +40,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
 
     // ---------------- Hide Loading ----------------
     EasyLoading.dismiss();
-
+    if (!mounted) return;
     if (result) {
       toastification.show(
         title: const Text('Password reset link sent to your email'),
@@ -67,6 +67,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         centerTitle: true,
         title: const Text("Forget Password"),

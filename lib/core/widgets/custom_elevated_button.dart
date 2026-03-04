@@ -25,13 +25,17 @@ class CustomElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return ElevatedButton(
-      onPressed: onPressed ?? () { if (onPressed != null) {
-        onPressed!();
-      }
+      onPressed:
+          onPressed ??
+          () {
+            if (onPressed != null) {
+              onPressed!();
+            }
 
-      if (onNavigation != null) {
-        onNavigation!();
-      }},
+            if (onNavigation != null) {
+              onNavigation!();
+            }
+          },
       style: ElevatedButton.styleFrom(
         elevation: 0,
         backgroundColor: backgroundColor ?? ColorPallete.primaryColor,
@@ -42,12 +46,13 @@ class CustomElevatedButton extends StatelessWidget {
           borderRadius: BorderRadiusGeometry.circular(16),
         ),
       ),
-      child: customChild ??
+      child:
+          customChild ??
           Text(
             bottonText ?? "",
             textAlign: TextAlign.center,
             style: theme.textTheme.titleLarge?.copyWith(
-              color: ColorPallete.colorBlack,
+              color: textColor ?? ColorPallete.colorBlack,
               fontWeight: FontWeight.w600,
             ),
           ),

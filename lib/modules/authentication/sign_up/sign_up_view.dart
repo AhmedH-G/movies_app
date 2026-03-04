@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -10,6 +11,7 @@ import '../../../core/utils/firebase_auth_utils.dart';
 import '../../../core/widgets/custom_elevated_button.dart';
 import '../../../core/widgets/custom_swap_flag.dart';
 import '../../../core/widgets/custom_text_from_field.dart';
+import '../../../models/user_data_model.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -165,21 +167,16 @@ class SignUpView extends StatefulWidget {
 //   }
 // }
 
-
-
-
-
-
-
-
-
-
 class _SignUpViewState extends State<SignUpView> {
-  final PageController _controller = PageController(viewportFraction: 0.4);
+  // final PageController _controller = PageController(viewportFraction: 0.4);
+  final PageController _controller = PageController(
+    viewportFraction: 0.4,
+    initialPage: 0,
+  );
   int selectedIndex = 0;
 
   List<String> avatars = <String>[
-    "assets/images/avatar1.png"
+    "assets/images/avatar1.png",
     "assets/images/avatar2.png",
     "assets/images/avatar3.png",
     "assets/images/avatar4.png",
@@ -209,6 +206,7 @@ class _SignUpViewState extends State<SignUpView> {
     // ---------------- Validation ----------------
     if (name.isEmpty) {
       toastification.show(
+        context: context,
         title: Text('Name cannot be empty'),
         type: ToastificationType.error,
         autoCloseDuration: Duration(seconds: 5),
@@ -218,6 +216,7 @@ class _SignUpViewState extends State<SignUpView> {
 
     if (email.isEmpty || !RegExp(r'\S+@\S+\.\S+').hasMatch(email)) {
       toastification.show(
+        context: context,
         title: Text('Enter a valid email'),
         type: ToastificationType.error,
         autoCloseDuration: Duration(seconds: 5),
@@ -227,6 +226,7 @@ class _SignUpViewState extends State<SignUpView> {
 
     if (password.isEmpty) {
       toastification.show(
+        context: context,
         title: Text('Password cannot be empty'),
         type: ToastificationType.error,
         autoCloseDuration: Duration(seconds: 5),
@@ -236,6 +236,7 @@ class _SignUpViewState extends State<SignUpView> {
 
     if (password != confirmPassword) {
       toastification.show(
+        context: context,
         title: Text('Passwords do not match'),
         type: ToastificationType.error,
         autoCloseDuration: Duration(seconds: 5),
@@ -245,6 +246,7 @@ class _SignUpViewState extends State<SignUpView> {
 
     if (phone.isEmpty) {
       toastification.show(
+        context: context,
         title: Text('Phone number cannot be empty'),
         type: ToastificationType.error,
         autoCloseDuration: Duration(seconds: 5),
@@ -253,9 +255,8 @@ class _SignUpViewState extends State<SignUpView> {
     }
 
     // ---------------- Show Loading ----------------
-    configloading(); // هنا تشغّل الإعدادات
+    configloading();
     EasyLoading.show(status: 'Creating account...');
-
 
     // ---------------- Call SignUp ----------------
     bool result = await FirebaseAuthUtils.signUp(
@@ -269,17 +270,46 @@ class _SignUpViewState extends State<SignUpView> {
     // ---------------- Dismiss Loading ----------------
     EasyLoading.dismiss();
 
+    // if (result) {
+    //   toastification.show(
+    //       context: context,
+    //     title: Text('Account created successfully!'),
+    //     type: ToastificationType.success,
+    //     autoCloseDuration: Duration(seconds: 5)
+    //   // Navigator.pushReplacementNamed(
+    //   //   context,
+    //   //   PageRouteName.singIn,
+    //   );
+    //
+    //
+    // }
     if (result) {
-      // toastification.show(
-      //   title: Text('Account created successfully!'),
-      //   type: ToastificationType.success,
-      //   autoCloseDuration: Duration(seconds: 5),
-      Navigator.pushReplacementNamed(
-        context,
-        PageRouteName.singIn,
+      String uid = FirebaseAuth.instance.currentUser!.uid;
+
+      UserDataModel userModel = UserDataModel(
+        uId: uid,
+        name: name,
+        email: email,
+        phone: phone,
+        avatarUrl: selectedAvatar,
       );
 
+      await FirebaseAuthUtils.createUser(userModel);
 
+      if (!mounted) return;
+
+      EasyLoading.dismiss();
+
+      toastification.show(
+        context: context,
+        title: const Text('Account created successfully!'),
+        type: ToastificationType.success,
+        autoCloseDuration: const Duration(seconds: 5),
+      );
+
+      Navigator.pushReplacementNamed(context, PageRouteName.singIn);
+    } else {
+      EasyLoading.dismiss();
     }
   }
 
@@ -328,7 +358,15 @@ class _SignUpViewState extends State<SignUpView> {
               ),
             ),
             SizedBox(height: 16),
-            Center(child: Text("Avatar", style: TextStyle(color: ColorPallete.generalTextColor, fontSize: 16))),
+            Center(
+              child: Text(
+                "Avatar",
+                style: TextStyle(
+                  color: ColorPallete.generalTextColor,
+                  fontSize: 16,
+                ),
+              ),
+            ),
             SizedBox(height: 16),
             CustomTextFromField(
               controller: _nameController,
@@ -376,7 +414,11 @@ class _SignUpViewState extends State<SignUpView> {
                 children: [
                   TextSpan(
                     text: "Already have an account? ",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: ColorPallete.generalTextColor),
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: ColorPallete.generalTextColor,
+                    ),
                   ),
                   WidgetSpan(
                     child: Bounceable(
@@ -385,7 +427,11 @@ class _SignUpViewState extends State<SignUpView> {
                       },
                       child: Text(
                         "Login",
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: ColorPallete.primaryColor),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: ColorPallete.primaryColor,
+                        ),
                       ),
                     ),
                   ),

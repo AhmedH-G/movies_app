@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:movies/core/routes/page_route_name.dart';
+import 'package:movies/modules/navigations/layout_view.dart';
+// import 'package:movies/modules/navigations/profile/profile_tab.dart';
+// import 'package:movies/modules/navigations/profile/update_screen.dart';
 import 'package:movies/modules/onboarding/onboarding_screen.dart';
 import '../../modules/authentication/forget_password/forget_password_view.dart';
 import '../../modules/authentication/sign_in/sign_in_view.dart';
 import '../../modules/authentication/sign_up/sign_up_view.dart';
-import '../../modules/home/screens/home_screen.dart';
-import '../../modules/profile/pick_avatar_screen.dart';
-import '../../modules/profile/update_screen.dart';
 
 abstract class AppRouters {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-
       case PageRouteName.onboardingScreen:
         return MaterialPageRoute(
           builder: (context) => const OnBoardingScreen(),
@@ -36,21 +35,9 @@ abstract class AppRouters {
           settings: settings,
         );
 
-      case PageRouteName.pickAvatar:
+      case PageRouteName.layoutView:
         return MaterialPageRoute(
-          builder: (context) => const PickAvatarScreen(),
-          settings: settings,
-        );
-
-      case PageRouteName.updateScreen:
-        return MaterialPageRoute(
-          builder: (context) => const UpdateScreen(),
-          settings: settings,
-        );
-
-      case PageRouteName.HomeScreen:
-        return MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
+          builder: (context) => LayoutView(),
           settings: settings,
         );
 

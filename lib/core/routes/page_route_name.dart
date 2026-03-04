@@ -4,10 +4,8 @@ abstract class PageRouteName {
   static const String singIn = '/sing-in';
   static const String singUp = '/sing-up';
   static const String forgetPassword = '/forget-password';
-  static const String pickAvatar = '/pic-avatar';
-  static const String updateScreen = '/update-screen';
-  static const String HomeScreen = '/home';
-
-  static const String layout = '/layout';
+  // static const String update = '/update_screen';
+  static const String pickAvatar = '/pick_avatar_screen';
+  static const String layoutView = '/layout_view';
 
 }
