@@ -1,45 +1,45 @@
 {
   "project_info": {
-    "project_number": "268782084241",
-    "project_id": "moviesapp-c5a1f",
-    "storage_bucket": "moviesapp-c5a1f.firebasestorage.app"
+    "project_number": "920747382677",
+    "project_id": "movieapp-20dbf",
+    "storage_bucket": "movieapp-20dbf.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:268782084241:android:1a84bd6216f63c05545f30",
+        "mobilesdk_app_id": "1:920747382677:android:53bb074a7be330d43a089c",
         "android_client_info": {
           "package_name": "com.example.movies"
         }
       },
       "oauth_client": [
         {
-          "client_id": "268782084241-m8bcjs4me5ajq6g8nqbcfvmttfnbnc6i.apps.googleusercontent.com",
+          "client_id": "920747382677-pjbu1cg486vn2n9ujjj6et0mgtsarhmo.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.movies",
-            "certificate_hash": "80d87ac77c9fb39c822fc3776b1434c5c7091bef"
+            "certificate_hash": "fc92af402c60df3b50432ed9990bb423ad5bb58d"
           }
         },
         {
-          "client_id": "268782084241-ahg522jiffh3614mv9agl0sb3rgm9k6m.apps.googleusercontent.com",
+          "client_id": "920747382677-hl0niu99pukkggj7v5rf8a78jvc593ir.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCE2lFDcTU_Hb8Nb5LmlTCX1lTwmPWVVFc"
+          "current_key": "AIzaSyDPng8-NdBXQrhvB1_scHvVUeo5ThyNbuQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "268782084241-ahg522jiffh3614mv9agl0sb3rgm9k6m.apps.googleusercontent.com",
+              "client_id": "920747382677-hl0niu99pukkggj7v5rf8a78jvc593ir.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "268782084241-ha7gtor3d34u7rsmv834etu07o2he8i6.apps.googleusercontent.com",
+              "client_id": "920747382677-u1ea59ge1f9ajea15rj3jf2dr2qf88a1.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.example.movies"

@@ -229,7 +229,7 @@ class _UpdateScreenState extends State<UpdateScreen> {
             _buildEditableField(Assets.icons.phone.path, phoneController),
             const SizedBox(height: 5),
             _buildResetPassword(),
-            const SizedBox(height: 100),
+            const SizedBox(height: 150),
             _buildDeleteButton(),
             const SizedBox(height: 15),
             _buildUpdateButton(),

@@ -51,19 +51,19 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCE2lFDcTU_Hb8Nb5LmlTCX1lTwmPWVVFc',
-    appId: '1:268782084241:android:1a84bd6216f63c05545f30',
-    messagingSenderId: '268782084241',
-    projectId: 'moviesapp-c5a1f',
-    storageBucket: 'moviesapp-c5a1f.firebasestorage.app',
+    apiKey: 'AIzaSyDPng8-NdBXQrhvB1_scHvVUeo5ThyNbuQ',
+    appId: '1:920747382677:android:53bb074a7be330d43a089c',
+    messagingSenderId: '920747382677',
+    projectId: 'movieapp-20dbf',
+    storageBucket: 'movieapp-20dbf.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDPs1WEN4M7dzun3v8F5ic7qlGpkH74iRw',
-    appId: '1:268782084241:ios:3c34ebd4fd3f1245545f30',
-    messagingSenderId: '268782084241',
-    projectId: 'moviesapp-c5a1f',
-    storageBucket: 'moviesapp-c5a1f.firebasestorage.app',
+    apiKey: 'AIzaSyCHGBQ_cHlIojSROnf53-oCAsnKZojpd9I',
+    appId: '1:920747382677:ios:344a295d9fc2cf7d3a089c',
+    messagingSenderId: '920747382677',
+    projectId: 'movieapp-20dbf',
+    storageBucket: 'movieapp-20dbf.firebasestorage.app',
     iosBundleId: 'com.example.movies',
   );
 
