@@ -12,6 +12,7 @@ class GoogleSignInService {
   static Future<void> initSignIn() async {
     if (!isInitialize) {
       await _googleSignIn.initialize(
+
         serverClientId: '920747382677-hl0niu99pukkggj7v5rf8a78jvc593ir.apps.googleusercontent.com',
       );
     }
