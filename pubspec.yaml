@@ -89,10 +89,12 @@ flutter:
           weight: 400 # Regular
         - asset: assets/fonts/Inter_Medium.ttf
           weight: 500 # Medium
-        - asset: assets/fonts/Inter_SemiBold.ttf
-          weight: 600 # SemiBold
         - asset: assets/fonts/Inter_Bold.ttf
           weight: 700 # Bold
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Bold.ttf
+
 
 flutter_native_splash:
   android: true
