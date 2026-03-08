@@ -144,15 +144,15 @@ class _UpdateScreenState extends State<UpdateScreen> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final List<String> avatars = [
-    Assets.images.Component1.path,
-    Assets.images.Component8.path,
-    Assets.images.Component4.path,
-    Assets.images.Component5.path,
-    Assets.images.Component6.path,
-    Assets.images.Component7.path,
-    Assets.images.Component8.path,
-    Assets.images.Component9.path,
-    Assets.images.Component10.path,
+    Assets.images.avatar1.path,
+    Assets.images.avatar2.path,
+    Assets.images.avatar3.path,
+    Assets.images.avatar4.path,
+    Assets.images.avatar5.path,
+    Assets.images.avatar6.path,
+    Assets.images.avatar7.path,
+    Assets.images.avatar8.path,
+    Assets.images.avatar9.path,
   ];
 
   int selectedAvatarIndex = 0;
@@ -224,12 +224,12 @@ class _UpdateScreenState extends State<UpdateScreen> {
             const SizedBox(height: 10),
             _buildAvatar(),
             const SizedBox(height: 20),
-            _buildEditableField(Assets.icons.User4.path, nameController),
+            _buildEditableField(Assets.icons.user4.path, nameController),
             const SizedBox(height: 15),
             _buildEditableField(Assets.icons.phone.path, phoneController),
             const SizedBox(height: 5),
             _buildResetPassword(),
-            const SizedBox(height: 150),
+            const SizedBox(height: 100),
             _buildDeleteButton(),
             const SizedBox(height: 15),
             _buildUpdateButton(),

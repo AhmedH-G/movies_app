@@ -199,6 +199,7 @@ class _SignInViewState extends State<SignInView> {
               ],
             ),
             SizedBox(height: 24),
+            //Login with Google Button
             CustomElevatedButton(
               backgroundColor: ColorPallete.primaryColor,
               onPressed: ()  {
