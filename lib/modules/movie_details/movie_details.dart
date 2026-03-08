@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../core/gen/assets.gen.dart';
 import '../../core/theme/color_pallete.dart';
+import '../../core/widgets/custom_movie_detalis.dart';
 import '../../core/widgets/custom_elevated_button.dart';
-import '../../core/widgets/custom_film_card.dart';
+
 import '../../core/widgets/movie_info_card_widget.dart';
 
 class MovieDetails extends StatefulWidget {
@@ -142,7 +143,7 @@ class _MovieDetailsState extends State<MovieDetails> {
               ],
             ),
             //------Second Part of Movie Details Screenshots---------//
-            SizedBox(height: 20),
+            SizedBox(height: 15),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
@@ -182,7 +183,7 @@ class _MovieDetailsState extends State<MovieDetails> {
               ),
             ),
             //------Third Part of Movie Details Similar from API---------//
-            SizedBox(height: 20),
+            SizedBox(height: 15),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
@@ -217,6 +218,143 @@ class _MovieDetailsState extends State<MovieDetails> {
                 ],
               ),
             ),
+            //------Four Part of Movie Details Summary---------//
+            SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Summary",
+                      style: theme.textTheme.headlineSmall?.copyWith(
+                        fontFamily: "Roboto",
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 15),
+                  SizedBox(
+                    width: 400,
+                    child: Text(
+                      "Following the events of Spider-Man No Way Home, Doctor Strange unwittingly casts a forbidden spell that accidentally opens up the multiverse. With help from Wong and Scarlet Witch, Strange confronts various versions of himself as well as teaming up with the young America Chavez while traveling through various realities and working to restore reality as he knows it. Along the way, Strange and his allies realize they must take on a powerful new adversary who seeks to take over the multiverse.—Blazer346",
+                      style: TextStyle(color: Colors.white,fontSize: 16),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            //------Five Part of Movie Details Cast---------//
+            SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Cast",
+                      style: theme.textTheme.headlineSmall?.copyWith(
+                        fontFamily: "Roboto",
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 15),
+                  CustomCastMovieDetalis(
+                    image: Assets.images.logo.path,
+                    title: "Name : Hayley Atwel",
+                    subtitle: "Character : Captain Carter",
+                  ),
+                  SizedBox(height: 5),
+                  CustomCastMovieDetalis(
+                    image: Assets.images.logo.path,
+                    title: "Name : Hayley Atwel",
+                    subtitle: "Character : Captain Carter",
+                  ),
+                  SizedBox(height: 5),
+                  CustomCastMovieDetalis(
+                    image: Assets.images.logo.path,
+                    title: "Name : Hayley Atwel",
+                    subtitle: "Character : Captain Carter",
+                  ),
+                  SizedBox(height: 5),
+                  CustomCastMovieDetalis(
+                    image: Assets.images.logo.path,
+                    title: "Name : Hayley Atwel",
+                    subtitle: "Character : Captain Carter",
+                  ),
+                  // GridView.builder(
+                  //   shrinkWrap: true,
+                  //   physics: NeverScrollableScrollPhysics(),
+                  //   itemCount: 4,
+                  //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  //     crossAxisCount: 2,
+                  //     crossAxisSpacing: 16,
+                  //     mainAxisSpacing: 16,
+                  //     childAspectRatio: 0.7,
+                  //   ),
+                  //   itemBuilder: (context, index) {
+                  //     return CustomFilmCard(
+                  //       rating: "7.7",
+                  //       imageUrl:
+                  //       "https://img.yts.bz/assets/images/movies/500_Days_of_Summer_2009/large-cover.jpg",
+                  //     );
+                  //   },
+                  // ),
+                ],
+              ),
+            ),
+            //------Six Part of Movie Details Cast---------//
+            SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Genres",
+                      style: theme.textTheme.headlineSmall?.copyWith(
+                        fontFamily: "Roboto",
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 15),
+                  Wrap(
+                    spacing: 20,
+                    runSpacing: 15,
+                    children: [
+                      CustomGenres(text: "Action"),
+                      CustomGenres(text: "Sci-Fi"),
+                      CustomGenres(text: "Adventure"),
+                      CustomGenres(text: "Fantasy"),
+                      CustomGenres(text: "Horror"),
+
+                    ],
+                  )
+
+                  // GridView.builder(
+                  //   shrinkWrap: true,
+                  //   physics: NeverScrollableScrollPhysics(),
+                  //   itemCount: 4,
+                  //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  //     crossAxisCount: 2,
+                  //     crossAxisSpacing: 16,
+                  //     mainAxisSpacing: 16,
+                  //     childAspectRatio: 0.7,
+                  //   ),
+                  //   itemBuilder: (context, index) {
+                  //     return CustomFilmCard(
+                  //       rating: "7.7",
+                  //       imageUrl:
+                  //       "https://img.yts.bz/assets/images/movies/500_Days_of_Summer_2009/large-cover.jpg",
+                  //     );
+                  //   },
+                  // ),
+                ],
+              ),
+            ),
+            SizedBox(height: 30),
           ],
         ),
       ),
