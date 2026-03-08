@@ -3,6 +3,7 @@ import '../theme/color_pallete.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String? bottonText;
+  final String? fontType;
   final VoidCallback? onPressed;
   final Color? backgroundColor;
   final Color? bordarColor;
@@ -14,6 +15,7 @@ class CustomElevatedButton extends StatelessWidget {
     super.key,
     this.onPressed,
     this.bottonText,
+    this.fontType,
     this.backgroundColor,
     this.bordarColor,
     this.customChild,
@@ -54,6 +56,7 @@ class CustomElevatedButton extends StatelessWidget {
             style: theme.textTheme.titleLarge?.copyWith(
               color: textColor ?? ColorPallete.colorBlack,
               fontWeight: FontWeight.w600,
+              fontFamily: fontType ?? "Inter",
             ),
           ),
     );
