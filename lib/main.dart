@@ -41,8 +41,6 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: AppRouters.onGenerateRoute,
         debugShowCheckedModeBanner: false,
         builder: EasyLoading.init(),
-        // Ahmed Helal Gawad ggggg
-        // 9999999999999999
       ),
     );
   }
