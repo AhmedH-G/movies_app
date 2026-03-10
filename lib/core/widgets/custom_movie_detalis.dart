@@ -15,56 +15,58 @@ class CustomCastMovieDetalis extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (title.isEmpty && subtitle.isEmpty && image.isEmpty)
+      return const SizedBox();
+
     return Container(
       width: double.infinity,
-      height: 100,
+      margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: Color(0xFF282A28),
+        color: const Color(0xFF282A28),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 16.0),
+        padding: const EdgeInsets.all(12.0),
         child: Row(
           children: [
-            SizedBox(width: 16),
-
             ClipRRect(
               borderRadius: BorderRadius.circular(15),
-              child: Image.asset(
+              child: image.isNotEmpty && image.startsWith('http')
+                  ? Image.network(
                 image,
                 width: 70,
                 height: 70,
                 fit: BoxFit.cover,
-              ),
+                errorBuilder: (context, error, stackTrace) =>
+                    Container(width: 70,
+                        height: 70,
+                        color: Colors.grey,
+                        child: Icon(Icons.person)),
+              )
+                  : Container(width: 70,
+                  height: 70,
+                  color: Colors.grey,
+                  child: Icon(Icons.person)),
             ),
-
-            SizedBox(width: 16),
-
+            const SizedBox(width: 16),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     title,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    maxLines: 2,
+                    style: const TextStyle(color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-
-                  SizedBox(height: 4),
-
+                  const SizedBox(height: 4),
                   Text(
                     subtitle,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    maxLines: 2,
+                    style: const TextStyle(color: Colors.grey, fontSize: 16),
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ],
@@ -80,11 +82,13 @@ class CustomCastMovieDetalis extends StatelessWidget {
 class CustomFilmCard extends StatelessWidget {
   final String rating;
   final String imageUrl;
+  final VoidCallback? onTap;
 
   const CustomFilmCard({
     super.key,
     required this.rating,
     required this.imageUrl,
+    this.onTap,
   });
 
   @override
@@ -92,7 +96,7 @@ class CustomFilmCard extends StatelessWidget {
     var theme = Theme.of(context);
 
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: Stack(
@@ -146,9 +150,7 @@ class CustomGenres extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double itemWidth = (screenWidth) / 4;
-
-    return Container(
+    double itemWidth = (screenWidth) / 4;return Container(
       width: itemWidth,
       height: 36,
       alignment: Alignment.center,
