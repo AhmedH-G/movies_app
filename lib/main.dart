@@ -10,7 +10,7 @@ import 'core/services/local_storage_services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 // //Remove this
-// import 'modules/movie_details/movie_details.dart';
+// import 'modules/movie_details/movie_details_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
         // home: MovieDetails(),
         debugShowCheckedModeBanner: false,
         builder: EasyLoading.init(),
-
+        // a;fsuhgesiurhgvoazerhgvi[ouaeh
       ),
     );
   }
