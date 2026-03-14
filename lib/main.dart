@@ -44,7 +44,6 @@ class MyApp extends StatelessWidget {
         // home: MovieDetails(),
         debugShowCheckedModeBanner: false,
         builder: EasyLoading.init(),
-        // a;fsuhgesiurhgvoazerhgvi[ouaeh
       ),
     );
   }

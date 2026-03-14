@@ -62,4 +62,22 @@ class MoviesService {
       return [];
     }
   }
+
+  Future<List<MovieDetails>> searchMovies(String query) async {
+    final String url =
+        "https://yts.lt/api/v2/list_movies.json?query_term=$query";
+
+    final response = await http.get(Uri.parse(url));
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      final List moviesJson = data['data']['movies'] ?? [];
+
+      return moviesJson
+          .map((movie) => MovieDetails.fromJson(movie))
+          .toList();
+    } else {
+      throw Exception("Failed to search movies");
+    }
+  }
 }

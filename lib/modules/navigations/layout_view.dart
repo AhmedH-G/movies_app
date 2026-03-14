@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies/modules/navigations/profile/profile_tab.dart';
 import 'package:movies/modules/navigations/profile/update_screen.dart';
 import 'home/home_tab.dart';
+import 'search/search_tab.dart';
 
 
 class LayoutView extends StatefulWidget {
@@ -16,7 +17,7 @@ class _LayoutViewState extends State<LayoutView> {
 
   final List<Widget> tabs = [
     const HomeTab(),
-    Container(color: Colors.black),
+    const SearchScreen(),
     Container(color: Colors.black),
     const UpdateScreen()
   ];
