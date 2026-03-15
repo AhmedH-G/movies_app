@@ -51,6 +51,8 @@ class MovieDetails {
   final int year;
   final int likeCount;
   final int runtime;
+  final String movieTrailer;
+  final String movieUrl;
   final List<String> screenshots;
   final List<Cast> cast;
 
@@ -64,6 +66,8 @@ class MovieDetails {
     required this.year,
     required this.likeCount,
     required this.runtime,
+    required this.movieTrailer,
+    required this.movieUrl,
     required this.screenshots,
     required this.cast,
   });
@@ -79,6 +83,8 @@ class MovieDetails {
       year: json['year'] ?? 0,
       likeCount: json['like_count'] ?? 0,
       runtime: json['runtime'] ?? 0,
+      movieTrailer: json['yt_trailer_code'] ?? "",
+      movieUrl: json['url'] ?? "",
       screenshots: [
         if (json['medium_screenshot_image1'] !=
             null) json['medium_screenshot_image1'],

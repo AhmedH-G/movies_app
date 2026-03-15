@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/core/routes/page_route_name.dart';
 import 'package:movies/modules/navigations/layout_view.dart';
-// import 'package:movies/modules/navigations/profile/profile_tab.dart';
-// import 'package:movies/modules/navigations/profile/update_screen.dart';
+import 'package:movies/modules/navigations/profile/update_screen.dart';
 import 'package:movies/modules/onboarding/onboarding_screen.dart';
 import '../../modules/authentication/forget_password/forget_password_view.dart';
 import '../../modules/authentication/sign_in/sign_in_view.dart';
@@ -38,6 +37,12 @@ abstract class AppRouters {
       case PageRouteName.layoutView:
         return MaterialPageRoute(
           builder: (context) => LayoutView(),
+          settings: settings,
+        );
+
+      case PageRouteName.updateScreen:
+        return MaterialPageRoute(
+          builder: (context) => const UpdateScreen(),
           settings: settings,
         );
 
