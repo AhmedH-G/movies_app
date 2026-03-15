@@ -221,15 +221,15 @@ class _UpdateScreenState extends State<UpdateScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            const SizedBox(height: 10),
+            const SizedBox(height: 45),
             _buildAvatar(),
-            const SizedBox(height: 20),
+            const SizedBox(height: 35),
             _buildEditableField(Assets.icons.user4.path, nameController),
             const SizedBox(height: 15),
             _buildEditableField(Assets.icons.phone.path, phoneController),
             const SizedBox(height: 5),
             _buildResetPassword(),
-            const SizedBox(height: 100),
+            const SizedBox(height: 130),
             _buildDeleteButton(),
             const SizedBox(height: 15),
             _buildUpdateButton(),
@@ -247,8 +247,8 @@ class _UpdateScreenState extends State<UpdateScreen> {
         child: Image.asset(
           avatars[selectedAvatarIndex],
           fit: BoxFit.cover,
-          height: 180,
-          width: 180,
+          height: 150,
+          width: 150,
         ),
       ),
     );

@@ -57,10 +57,17 @@ class _SignInViewState extends State<SignInView> {
 
     EasyLoading.dismiss();
     if (!mounted) return;
+    // if (result) {
+    //   Navigator.pushReplacementNamed(
+    //     context,
+    //       PageRouteName.layoutView,
+    //   );
+    // }
     if (result) {
-      Navigator.pushReplacementNamed(
+      Navigator.pushNamedAndRemoveUntil(
         context,
-          PageRouteName.layoutView,
+        PageRouteName.layoutView,
+            (route) => false,
       );
     }
   }
@@ -74,7 +81,11 @@ class _SignInViewState extends State<SignInView> {
       EasyLoading.dismiss();
 
       if (userCredential != null && mounted) {
-        Navigator.pushReplacementNamed(context, PageRouteName.layoutView);
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          PageRouteName.layoutView,
+              (route) => false,
+        );
 
         toastification.show(
           context: context,
@@ -85,7 +96,9 @@ class _SignInViewState extends State<SignInView> {
       }
     } catch (e) {
       EasyLoading.dismiss();
+      if (!mounted) return;
       toastification.show(
+
         context: context,
         title: Text('Google Sign-In failed: $e'),
         type: ToastificationType.error,

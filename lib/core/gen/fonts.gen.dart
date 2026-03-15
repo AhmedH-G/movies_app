@@ -13,4 +13,7 @@ class FontFamily {
 
   /// Font family: Inter
   static const String inter = 'Inter';
+
+  /// Font family: Roboto
+  static const String roboto = 'Roboto';
 }
