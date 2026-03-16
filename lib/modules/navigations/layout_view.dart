@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/modules/navigations/explore/explore_tab.dart';
 import 'package:movies/modules/navigations/profile/profile_tab.dart';
 import 'package:movies/modules/navigations/profile/update_screen.dart';
 import 'home/home_tab.dart';
@@ -18,7 +19,7 @@ class _LayoutViewState extends State<LayoutView> {
   final List<Widget> tabs = [
     const HomeTab(),
     const SearchScreen(),
-    Container(color: Colors.black),
+    const ExploreTab(),
     const UpdateScreen()
   ];
 
