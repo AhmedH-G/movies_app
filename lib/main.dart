@@ -12,6 +12,7 @@ import 'firebase_options.dart';
 // //Remove this
 // import 'modules/movie_details/movie_details_screen.dart';
 
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
