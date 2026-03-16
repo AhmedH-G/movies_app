@@ -17,6 +17,9 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/Folder.svg
+  SvgGenImage get folder => const SvgGenImage('assets/icons/Folder.svg');
+
   /// File path: assets/icons/Group 5.png
   AssetGenImage get group5 => const AssetGenImage('assets/icons/Group 5.png');
 
@@ -51,6 +54,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/likes.svg
   SvgGenImage get likes => const SvgGenImage('assets/icons/likes.svg');
 
+  /// File path: assets/icons/list.svg
+  SvgGenImage get list => const SvgGenImage('assets/icons/list.svg');
+
   /// File path: assets/icons/lock.png
   AssetGenImage get lock => const AssetGenImage('assets/icons/lock.png');
 
@@ -71,6 +77,7 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<dynamic> get values => [
+    folder,
     group5,
     profiel,
     user4,
@@ -81,6 +88,7 @@ class $AssetsIconsGen {
     eyeSlash,
     google,
     likes,
+    list,
     lock,
     phone,
     rate,
@@ -92,10 +100,6 @@ class $AssetsIconsGen {
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
-
-  /// File path: assets/images/video play.png
-  AssetGenImage get videoPlay =>
-      const AssetGenImage('assets/images/video play.png');
 
   /// File path: assets/images/Available Now.png
   AssetGenImage get availableNow =>
@@ -217,9 +221,16 @@ class $AssetsImagesGen {
   AssetGenImage get splashLogo =>
       const AssetGenImage('assets/images/splash_logo.png');
 
+  /// File path: assets/images/video play.png
+  AssetGenImage get videoPlay =>
+      const AssetGenImage('assets/images/video play.png');
+
+  /// File path: assets/images/popcorn.png
+  AssetGenImage get popcorn =>
+      const AssetGenImage('assets/images/popcorn.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
-    videoPlay,
     availableNow,
     component111,
     component1110,
@@ -253,6 +264,8 @@ class $AssetsImagesGen {
     onBoarding5,
     onBoarding6,
     splashLogo,
+    videoPlay,
+    popcorn
   ];
 }
 

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../../../core/gen/assets.gen.dart';
 import '../../../core/services/movies_service.dart';
 import '../../../models/movie_model.dart';
 import '../../movie_details/movie_details_screen.dart';
@@ -101,10 +102,12 @@ class _SearchScreenState extends State<SearchScreen> {
                     )
                   : movies.isEmpty
                   ? Center(
-                      child: Image.asset(
-                        "assets/images/Empty.png",
-                        width: 200,
-                      ),
+
+                      child: Assets.images.popcorn.image(width: 200)
+                      // Image.asset(
+                      //   "assets/images/Empty.png",
+                      //   width: 200,
+                      // ),
                     )
                   : GridView.builder(
                       padding: const EdgeInsets.symmetric(horizontal: 16),

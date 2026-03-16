@@ -4,6 +4,7 @@ abstract class ColorPallete {
   static const Color primaryColor = Color(0xFFFFBB3B);
   static const Color ratingColor = Color(0xFFffc106);
   static const Color scaffoldBackgroungColor = Color(0xFF121312);
+  static const Color backgroundColorBlack = Color(0xFF212121);
   static const Color bordarColor = Color(0xFF282A28);
   static const Color bacgroundTextfelid = Color(0xFF282A28);
   static const Color buttonRedColor = Color(0xFFE82626);
