@@ -11,7 +11,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class MovieDetailsScreen extends StatefulWidget {
   final int movieId;
-//////
+
   const MovieDetailsScreen({super.key, required this.movieId});
 
   @override
