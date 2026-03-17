@@ -20,7 +20,7 @@ class _LayoutViewState extends State<LayoutView> {
     const HomeTab(),
     const SearchScreen(),
     const ExploreTab(),
-    const UpdateScreen()
+    const ProfileTab()
   ];
 
   @override
