@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:toastification/toastification.dart';
-// import 'core/routes/app_routers.dart';
-// import 'core/routes/page_route_name.dart';
+import 'core/routes/app_routers.dart';
+import 'core/routes/page_route_name.dart';
 import 'core/services/loading_service.dart';
 import 'core/theme/theme_manager.dart';
 import 'core/services/local_storage_keys.dart';
 import 'core/services/local_storage_services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-//Remove this
-import 'modules/movie_details/movie_details.dart';
+// //Remove this
+// import 'modules/movie_details/movie_details_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,9 +39,9 @@ class MyApp extends StatelessWidget {
         themeMode: ThemeMode.light,
         theme: ThemeManager.getLightTheme(),
         darkTheme: ThemeManager.getDarkTheme(),
-        // initialRoute: isFirstTime ? PageRouteName.onboardingScreen : PageRouteName.singIn,
-        // onGenerateRoute: AppRouters.onGenerateRoute,
-        home: MovieDetails(),
+        initialRoute: isFirstTime ? PageRouteName.onboardingScreen : PageRouteName.singIn,
+        onGenerateRoute: AppRouters.onGenerateRoute,
+        // home: MovieDetails(),
         debugShowCheckedModeBanner: false,
         builder: EasyLoading.init(),
       ),
